@@ -1,6 +1,8 @@
 Cloud Torrent 一键安装脚本
 支持 BT(磁力链接)、离线下载和边下边播
 
+安装 
+wget -N --no-check-certificate https://raw.githubusercontent.com/110560/cloudt.sh/main/cloudt.sh && chmod +x cloudt.sh && bash cloudt.sh
 
 
 启动：/etc/init.d/cloudt start
