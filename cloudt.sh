@@ -80,19 +80,19 @@ check_ver_comparison(){
 	fi
 }
 Download_ct(){
-	cd ${file}
-	if [[ ${bit} == "x86_64" ]]; then
-		wget --no-check-certificate -O cloud-torrent.gz "https://github.com/jpillora/cloud-torrent/releases/download/v0.9.1/cloud-torrent_0.9.1_linux_amd64.gz"
-	elif [[ ${bit} == "i386" || ${bit} == "i686" ]]; then
-		wget --no-check-certificate -O cloud-torrent.gz "https://github.com/jpillora/cloud-torrent/releases/download/v0.9.1/cloud-torrent_0.9.1_linux_386.gz"
-	else
-		wget --no-check-certificate -O cloud-torrent.gz "https://github.com/jpillora/cloud-torrent/releases/download/v0.9.1/cloud-torrent_0.9.1_linux_arm.gz"
-	fi
-	[[ ! -e "cloud-torrent.gz" ]] && echo -e "${Error} Cloud Torrent 下载失败 !" && exit 1
-	gzip -d cloud-torrent.gz
-	[[ ! -e ${ct_file} ]] && echo -e "${Error} Cloud Torrent 解压失败(可能是 压缩包损坏 或者 没有安装 Gzip) !" && exit 1
-	rm -rf cloud-torrent.gz
-	chmod +x cloud-torrent
+    cd ${file}
+    if [[ ${bit} == "x86_64" ]]; then
+        wget --no-check-certificate -O cloud-torrent.gz "https://github.com/jpillora/cloud-torrent/releases/download/v0.9.1/cloud-torrent_0.9.1_linux_amd64.gz"
+    elif [[ ${bit} == "i386" || ${bit} == "i686" ]]; then
+        wget --no-check-certificate -O cloud-torrent.gz "https://github.com/jpillora/cloud-torrent/releases/download/v0.9.1/cloud-torrent_0.9.1_linux_386.gz"
+    else
+        wget --no-check-certificate -O cloud-torrent.gz "https://github.com/jpillora/cloud-torrent/releases/download/v0.9.1/cloud-torrent_0.9.1_linux_arm.gz"
+    fi
+    [[ ! -e "cloud-torrent.gz" ]] && echo -e "${Error} Cloud Torrent 下载失败 !" && exit 1
+    gzip -d cloud-torrent.gz
+    [[ ! -e ${ct_file} ]] && echo -e "${Error} Cloud Torrent 解压失败(可能是 压缩包损坏 或者 没有安装 Gzip) !" && exit 1
+    rm -rf cloud-torrent.gz
+    chmod +x cloud-torrent
 }
 Service_ct(){
 	if [[ ${release} = "centos" ]]; then
